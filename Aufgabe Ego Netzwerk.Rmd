@@ -1,0 +1,28 @@
+---
+title: "Aufgabe Ego Netzwerk"
+output: pdf_document
+editor_options: 
+  chunk_output_type: console
+---
+#Ego Netzwerke 
+
+##Ungerichtetes Netzwerk:
+``` {r Übungaufgabe Geo Netwerke ungerichtet}
+library(igraph)
+
+franzi1 <- graph_from_literal(Franzi-Kirsti:Lisa:Juergen:Jack, Lisa:Jack-Juergen:Kirsti)
+
+plot(franzi1, layout=layout_with_kk, main="Ego-Netzwerk ungerichtet")
+```
+
+
+##gerichtetes Netzwerk
+
+```{r Ego Netzwerk gerichtet}
+
+franzi2 <- graph_from_literal(Franzi +-+ Jack:Kirsti, Franzi --+ Lisa, Franzi +-- Juergen, Juergen +-+ Jack, Jack -+ Kirsti, Juergen +-+ Lisa, Lisa -+ Kirsti)
+
+plot(franzi2, layout= layout_with_kk, main="Ego-Netzwerk gerichtet")
+
+```
+
